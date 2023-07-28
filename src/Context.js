@@ -2,7 +2,7 @@ import {createContext, useContext} from "react";
 import { faker } from '@faker-js/faker';
 import { useReducer } from "react";
 import { cartReducer, productReducer } from "./CartReducer";
-faker.seed(69);
+faker.seed(1);
 const Cart = createContext();
 
 
@@ -32,9 +32,10 @@ function Context({children}){
     searchQuery:""
    });
  
+   console.log(productState);
 
     return (
-        <Cart.Provider value={{state, dispatch}}>
+        <Cart.Provider value={{state, dispatch,productState, productDispatch}}>
             {children}
         </Cart.Provider>
     );

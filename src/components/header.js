@@ -7,6 +7,7 @@ import { CartState } from "../Context";
 function Header(){
 
     const {state:{cart},dispatch} = CartState();
+    const{productState:{searchQuery},productDispatch} = CartState();
 
     return(
         <Navbar bg="dark" data-bs-theme="dark" style={{height:80}}>
@@ -19,6 +20,14 @@ function Header(){
                     className="m-auto" 
                     style={{width:500}} 
                     placeholder="Search a product"
+                    onChange={
+                        (e)=>{
+                            productDispatch({
+                                type:"FILTER_BY_SEARCH",
+                                payload:e.target.value,
+                            });
+                        }
+                    }
                     />
 
                 </Navbar.Text>

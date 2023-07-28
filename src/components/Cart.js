@@ -16,7 +16,7 @@ function Cart(){
     return( 
     <div className="home">
         <div className="productContainer">
-            <ListGroup>
+            { <ListGroup>
                 {cart.map((prod)=>(
                      <ListGroup.Item key={prod.id}>
                         <Row>
@@ -72,7 +72,9 @@ function Cart(){
                         
                     ))
                 }
-            </ListGroup>
+            </ListGroup> 
+            
+        }
         </div>
         <div className="filters summary">
           <span className="title">Subtotal ({cart.length}) items</span>
